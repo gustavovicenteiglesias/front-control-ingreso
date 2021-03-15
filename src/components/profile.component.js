@@ -18,6 +18,7 @@ export default class Profile extends Component {
 
     if (!currentUser) this.setState({ redirect: "/home" });
     this.setState({ currentUser: currentUser, userReady: true })
+    console.log(currentUser.accessToken)
   }
 
   render() {

@@ -1,7 +1,8 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const API_URL = 'http://localhost:8080/api/test/';
+const API_URL = 'http://localhost:9525/api/test/';
+
 
 class UserService {
   getPublicContent() {
@@ -19,6 +20,10 @@ class UserService {
   getAdminBoard() {
     return axios.get(API_URL + 'admin', { headers: authHeader() });
   }
+  getPrensaBoard() {
+    return axios.get(API_URL + 'prensa', { headers: authHeader() });
+  }
+  
 }
 
 export default new UserService();

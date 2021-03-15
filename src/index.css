@@ -1,0 +1,25 @@
+
+@font-face {
+  font-family: "LibreBaskerville-Regular";
+  src: local("LibreBaskerville-Regular"),
+    url("./fonts/LibreBaskerville-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "LibreBaskerville-Bold";
+  src: local("LibreBaskerville-Bold"),
+    url("./fonts/LibreBaskerville-Bold.ttf") format("truetype");
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  font-family: LibreBaskerville-Bold;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: LibreBaskerville-Bold;
+}

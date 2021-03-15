@@ -1,0 +1,101 @@
+.bg-menu {
+    background-color: rgb(168, 32,74,0.75);
+   
+  }
+
+.header-text{
+    align-items: center;
+    justify-items: center;
+}
+.menu-text{
+    color:rgb(255,255,255) ;
+    font-weight: bold;
+}
+.menu-logo{
+    margin-left: 55px;
+}
+.menu-titulo{
+    font-family:LibreBaskerville-Bold ;
+    color: rgb(0, 0, 0);
+    margin-left: 20px;
+    
+}
+.btn-nav{
+    font-family:LibreBaskerville-Bold ;
+    border-style: none;
+    -webkit-transition:all .9s ease; /* Safari y Chrome */
+        -moz-transition:all .9s ease; /* Firefox */
+        -o-transition:all .9s ease; /* IE 9 */
+        -ms-transition:all .9s ease; /* Opera */
+   
+}
+.btn-nav:hover{
+    font-family:LibreBaskerville-Bold ;
+    background-color:rgb(255, 255, 255);
+    color: black;
+    border-style: none;
+    -webkit-transform:scale(1.05);
+        -moz-transform:scale(1.05);
+        -ms-transform:scale(1.05);
+        -o-transform:scale(1.05);
+        transform:scale(1.05);
+}
+.btn-nav:active{
+    border-style: none;
+}
+
+a.btn.btn-nav{
+    color: white ;
+    text-align: left;
+    
+}
+
+a.btn.btn-nav:hover{
+    color: rgb(168, 32,74,0.75) ;
+}
+
+button#basic-nav-dropdown{
+    color: white ;
+}
+
+button#basic-nav-dropdown:hover{
+    color: rgb(168, 32,74,0.75) ;
+}
+
+.buttton-nav{
+    margin-top:10px ;
+    margin-bottom: 0px;
+}
+.radio{
+    border-radius: 50px;
+}
+.envivo{
+    font-weight: bold;
+    font-size: 80%;
+}
+.header-radio{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 992px) {
+.logo-header{
+    display: none;
+}
+.brand-logo{
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+}
+
+@media not screen and (max-width: 992px) {
+    .brand-logo{
+        display: none;
+       
+    }
+   
+}
