@@ -1,5 +1,5 @@
 .bg-menu {
-    background-color: rgb(168, 32,74,0.75);
+    background-color: white !important;
    
   }
 
@@ -8,7 +8,7 @@
     justify-items: center;
 }
 .menu-text{
-    color:rgb(255,255,255) ;
+    color:black ;
     font-weight: bold;
 }
 .menu-logo{
@@ -45,7 +45,7 @@
 }
 
 a.btn.btn-nav{
-    color: white ;
+    color: black ;
     text-align: left;
     
 }
