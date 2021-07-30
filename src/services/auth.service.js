@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:9528/api/auth/";
+const API_URL = "http://areco.gob.ar:9528/api/auth/";
 
 class AuthService {
   login(username, password) {

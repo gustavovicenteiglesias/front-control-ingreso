@@ -1,21 +1,21 @@
-:root {
+/*:root {
     --sombra-container: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.25);
 
     --color-cuadrado: #265661;
     --color-fondo-secciones: #345d66;
-}
+}*/
 .texto-h2 {
     margin-bottom: 1rem;
     margin-top: 1rem;
     font-size: 30px;
     font-weight: bold;
-    color: #c5cc77;
+    color: #555559;
     text-align: center;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.45);
 }
-.fondo {
+/*.fondo {
     background: #18363d;
-}
+}*/
 .form-label {
     font-weight: bold;
 }

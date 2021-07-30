@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const API_URL = 'http://localhost:9528/api/test/';
+const API_URL = 'http://areco.gob.ar:9528/api/test/';
 
 
 class UserService {

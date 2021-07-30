@@ -73,7 +73,8 @@ class NavAdmin extends React.Component{
             <>
             
               <Navbar  as="div" bg="light" expand="lg"  className="logo-header" >
-            <Navbar.Brand href="/home" >
+              <LinkContainer to="/home">
+            <Navbar.Brand  >
                 <Row className="header-text"> 
                     <img
                                 alt=""
@@ -85,6 +86,7 @@ class NavAdmin extends React.Component{
                     
                 </Row>
             </Navbar.Brand>
+            </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav " className="buttton-nav">
            <Nav className="mr-auto  " >
@@ -95,7 +97,8 @@ class NavAdmin extends React.Component{
             </Navbar>
 
             <Navbar className="bg-menu" expand="lg">
-            <Navbar.Brand  className='brand-logo'  href="/home">
+            <LinkContainer to="/home">
+            <Navbar.Brand  className='brand-logo' >
             
                 <img
                             alt=""
@@ -104,14 +107,16 @@ class NavAdmin extends React.Component{
                             height="80"
                             className="menu-logo-chico"
                         /> 
-                
+            
               
             </Navbar.Brand>
+            </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav " className="buttton-nav">
                 <Nav className="mr-auto ml-0 mt-0 " >
+                <LinkContainer to="/home">
                 <Button href="/home" variant="nav" >Inicio</Button>
-                
+                </LinkContainer>
                 {showAdminBoard &&
                 (
                   <LinkContainer to="/actividades">
@@ -166,6 +171,7 @@ class NavAdmin extends React.Component{
             <Route path="/admin" component={BoardAdmin} />
             <Route path="/actividades" component={Actividades} />
             <Route path="/cohortes" component={Cohortes} />
+            <Route path="/aulas" component={Aulas} />
             <Route path="/proximasclases" component={Proximas} />
 
           </Switch>

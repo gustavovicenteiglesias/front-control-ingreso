@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="container fluid app-border bg-app">
+    <div className="container fluid">
       <NavAdmin/>
     
       

@@ -2,6 +2,9 @@
     background-color: white !important;
    
   }
+  .bg-light {
+    background-color: white !important;
+}
 
 .header-text{
     align-items: center;

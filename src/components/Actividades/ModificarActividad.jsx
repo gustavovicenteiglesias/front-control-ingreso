@@ -20,8 +20,8 @@ export const ModificarActividad = (props) => {
     }, [props.showModal]);
     return (
         <div>
-            <Modal show={showModal} onHide={props.handleHide}>
-                <Modal.Header>
+            <Modal show={showModal} onHide={props.handleHide} >
+                <Modal.Header closeButton>
                     <Modal.Title>Modificar Actividad</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
