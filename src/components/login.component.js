@@ -4,7 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 
 import AuthService from "../services/auth.service";
-
+import '../components/Actividades/AdministrarActividades.css';
 const required = value => {
   if (!value) {
     return (
@@ -96,7 +96,7 @@ export default class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">Usuario</label>
               <Input
                 type="text"
                 className="form-control"
@@ -108,7 +108,7 @@ export default class Login extends Component {
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Contraseña</label>
               <Input
                 type="password"
                 className="form-control"

@@ -20,7 +20,7 @@ const ModificarSesion = ({showModal, handleClose, sesion}) => {
     return (
         <div>
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header>
+                <Modal.Header closeButton>
                     <Modal.Title>Modificar Clase</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -34,10 +34,10 @@ const ModificarSesion = ({showModal, handleClose, sesion}) => {
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    {/*<Button variant="secondary" onClick={handleClose}>
                         Cerrar
-                    </Button>
-                    <Button variant="primary" onClick={handleSubmit}>
+                    </Button>*/}
+                    <Button variant="primary"  block onClick={handleSubmit}>
                         Guardar Cambios
                     </Button>
                 </Modal.Footer>

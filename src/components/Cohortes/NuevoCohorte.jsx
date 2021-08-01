@@ -138,7 +138,7 @@ export default (props) => {
     return (
         <>
             <Modal show={show} onHide={props.handleHide}>
-                <Modal.Header>
+                <Modal.Header closeButton>
                     <Modal.Title>Crear Cohorte</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -207,7 +207,7 @@ export default (props) => {
                         <Form.Label>Fecha Fin</Form.Label>
                         <Form.Control type="date" onChange={handleFechaFin} required />
                     </Form.Group>
-                    <Button className="mt-3" variant="primary" onClick={handleCrearCohorte}>
+                    <Button className="mt-3" variant="primary" block onClick={handleCrearCohorte}>
                         Crear Cohorte
                     </Button>
                 </Modal.Body>
@@ -290,16 +290,16 @@ export default (props) => {
                             ))}
                         </Form.Control>
                     </Form.Group>
-                    <Button className="mt-3" variant="primary" onClick={handleAsignarHorario}>
+                    <Button className="mt-3" variant="primary" block onClick={handleAsignarHorario}>
                         Asignar Horario
                     </Button>
                     <TablaHorarios horarios={horarios} showTable={showTable} />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={props.handleClose}>
+                    {/*<Button variant="secondary" onClick={props.handleClose}>
                         Cerrar
-                    </Button>
-                    <Button variant="primary" onClick={handleSubmit}>
+                            </Button>*/}
+                    <Button variant="primary" block onClick={handleSubmit}>
                         Guardar Cambios
                     </Button>
                 </Modal.Footer>

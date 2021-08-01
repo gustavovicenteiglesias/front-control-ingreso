@@ -2,7 +2,7 @@ import {Container, Col} from 'react-bootstrap'
 
 import TablaAulas2 from './TablaAulas2'
 import React from 'react';
-
+import '../Actividades/AdministrarActividades.css'
 export default () => {
 
     return (

@@ -1,25 +1,27 @@
 
 @font-face {
-  font-family: "LibreBaskerville-Regular";
-  src: local("LibreBaskerville-Regular"),
-    url("./fonts/LibreBaskerville-Regular.ttf") format("truetype");
+  font-family: "Ubuntu-Regular";
+  src: local("Ubuntu-Regular"),
+    url("./fonts/Ubuntu-Regular.ttf") format("truetype");
   font-weight: normal;
+  font-display: fallback;
 }
 
 @font-face {
-  font-family: "LibreBaskerville-Bold";
-  src: local("LibreBaskerville-Bold"),
-    url("./fonts/LibreBaskerville-Bold.ttf") format("truetype");
+  font-family: "Ubuntu-Bold";
+  src: local("Ubuntu-Bold"),
+    url("./fonts/Ubuntu-Bold.ttf") format("truetype");
   font-weight: normal;
+  font-display: fallback;
 }
 
 body {
   margin: 0;
-  font-family: LibreBaskerville-Bold;
+  font-family: Ubuntu-Bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: LibreBaskerville-Bold;
+  font-family: Ubuntu-Bold;
 }

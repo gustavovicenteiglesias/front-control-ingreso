@@ -5,12 +5,12 @@ import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 
 import AuthService from "../services/auth.service";
-
+import '../components/Actividades/AdministrarActividades.css';
 const required = value => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
-        This field is required!
+        Este campo es requerido
       </div>
     );
   }
@@ -20,7 +20,7 @@ const email = value => {
   if (!isEmail(value)) {
     return (
       <div className="alert alert-danger" role="alert">
-        This is not a valid email.
+        Email no válido
       </div>
     );
   }
@@ -30,7 +30,7 @@ const vusername = value => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className="alert alert-danger" role="alert">
-        The username must be between 3 and 20 characters.
+        El usuario tiene que tener entre 3 y 20 caracteres
       </div>
     );
   }
@@ -40,6 +40,7 @@ const vpassword = value => {
   if (value.length < 6 || value.length > 40) {
     return (
       <div className="alert alert-danger" role="alert">
+        La contraseña tiene que tener entre 6 y 40 caracteres
         The password must be between 6 and 40 characters.
       </div>
     );
@@ -139,7 +140,7 @@ export default class Register extends Component {
             {!this.state.successful && (
               <div>
                 <div className="form-group">
-                  <label htmlFor="username">Username</label>
+                  <label htmlFor="username">Usuario</label>
                   <Input
                     type="text"
                     className="form-control"
@@ -163,7 +164,7 @@ export default class Register extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">Contraseña</label>
                   <Input
                     type="password"
                     className="form-control"
@@ -175,7 +176,7 @@ export default class Register extends Component {
                 </div>
 
                 <div className="form-group">
-                  <button className="btn btn-primary btn-block">Sign Up</button>
+                  <button className="btn btn-primary btn-block">Registrate</button>
                 </div>
               </div>
             )}

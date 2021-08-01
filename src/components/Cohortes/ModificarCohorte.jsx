@@ -39,7 +39,7 @@ const ModificarCohorte = (props) => {
     return (
         <div>
             <Modal show={showModal} onHide={props.handleClose}>
-                <Modal.Header>
+                <Modal.Header closeButton>
                     <Modal.Title>Modificar Cohorte</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -65,10 +65,10 @@ const ModificarCohorte = (props) => {
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={props.handleClose}>
+                    {/*<Button variant="secondary" onClick={props.handleClose}>
                         Cerrar
-                    </Button>
-                    <Button variant="primary" onClick={handleSubmit}>
+                    </Button>*/}
+                    <Button variant="primary" block onClick={handleSubmit}>
                         Guardar Cambios
                     </Button>
                 </Modal.Footer>

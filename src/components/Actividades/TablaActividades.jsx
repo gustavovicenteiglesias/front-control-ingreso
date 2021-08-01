@@ -11,7 +11,7 @@ import { ModificarActividad } from "./ModificarActividad";
 import deleteActividad from "./deleteActividad";
 import NuevaActividad from "./NuevaActividad";
 import Swal from "sweetalert2";
-
+import AuthService from "../../services/auth.service";
 /*
     TODO: Quitar deleteActividad de este archivo y modularizarlo
 */
@@ -19,6 +19,7 @@ const TablaActividades2 = () => {
     const [showModalModificar, setshowModalModificar] = useState(false);
     const [showModalAgregar, setShowModalAgregar] = useState(false);
     const [actividadModificar, setActividadModificar] = useState();
+    const [showAdminBoard,setAdminBoard]=useState();
 
     const handleCloseModificar = () => setshowModalModificar(false);
     const handleHideModificar = () => setshowModalModificar(false);
@@ -109,7 +110,11 @@ const TablaActividades2 = () => {
                 setDependencias(data);
                 console.log("Dependencias", dependencias);
             })
-    }, [data]);
+    }, []);
+    useEffect(() => {
+        const user = AuthService.getCurrentUser();
+        if(user)  setAdminBoard(user.roles.includes("ROLE_ADMIN"))
+    }, [])
 
     return (
         <div>
@@ -131,6 +136,7 @@ const TablaActividades2 = () => {
                 <FilterRow visible={true} resetOperationText="Deshacer filtros">
                     <OperationDescriptions contains="Contiene" equal="Busqueda Exacta" />
                 </FilterRow>
+                {showAdminBoard &&
                 <Editing useIcons={true} allowAdding={true} allowUpdating={true} allowDeleting={true}>
                     <Button name="add" hint="Agregar" onClick={() => console.log("Clicked")} />
                     <Popup closeOnOutsideClick={true} title="Datos de Actividad" showTitle={true} width={600} height={300} />
@@ -142,10 +148,13 @@ const TablaActividades2 = () => {
                         </Item>
                     </Form>
                 </Editing>
+                    }
+                {showAdminBoard &&
                 <Column type="buttons" caption="Acciones">
                     <Button name="edit" hint="Editar" onClick={(event) => handleEditarClick(event.row.data)} />
-                    <Button name="delete" hint="Borrar" onClick={(event) => handleBorrarClick(event.row.data)} />
+                    <Button name="delete" hint="Borrar"   onClick={(event) => handleBorrarClick(event.row.data)} />
                 </Column>
+                 }
                 {columnas.map((c) => {
                     return (
                         <Column dataField={c.dataField} caption={c.caption} width={c.width} filterOperations={filtros}>

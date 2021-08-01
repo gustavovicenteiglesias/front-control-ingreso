@@ -42,7 +42,7 @@ export default (props) => {
     return (
         <>
           <Modal show={show} onHide={props.handleHide}>
-            <Modal.Header >
+            <Modal.Header closeButton>
               <Modal.Title>Crear nueva actividad</Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -67,10 +67,10 @@ export default (props) => {
 
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={props.handleClose}>
+             {/* <Button variant="secondary" onClick={props.handleClose}>
                   Cerrar
-              </Button>
-              <Button variant="primary" onClick={handleSubmit}>
+                </Button>*/}
+              <Button variant="primary" block onClick={handleSubmit}>
                   Guardar Cambios
               </Button>
             </Modal.Footer>

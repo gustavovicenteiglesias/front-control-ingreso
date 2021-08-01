@@ -1,30 +1,27 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import {Navbar,Nav,Button,DropdownButton,Dropdown,Row, Col}from "react-bootstrap";
-import { Switch, Route, Link } from "react-router-dom";
+import React, { Suspense, lazy }  from 'react';
+import {Navbar,Nav,Button,Row}from "react-bootstrap";
+import { Switch, Route } from "react-router-dom";
 import { LinkContainer } from 'react-router-bootstrap';
-
+import Placeholder from './Placeholder';
 import AuthService from "../../services/auth.service";
-
-import Login from "../login.component";
-import Register from "../register.component";
-import Home from "../home.component";
-import Profile from "../profile.component";
-import BoardUser from "../board-user.component";
-import BoardModerator from "../board-moderator.component";
-import BoardPrensa from "../board-prensa.component";
-import BoardAdmin from "../board-admin.component";
-import Actividades from "../Actividades/AdministrarActividades";
-import Cohortes from "../Cohortes/AdministrarCohortes";
-import Aulas from "../Aulas/AdministrarAulas";
-import Proximas from "../AsignarAulas/AsignarAulas";
-
 import logo1 from "../../assest/Logo.png";
 import logo from "../../assest/Logo.png";
-
-
-
 import "./NavAdmin1.css";
+
+const Cohortes = lazy(() =>import ("../Cohortes/AdministrarCohortes"));
+const Aulas= lazy(() =>import ("../Aulas/AdministrarAulas"));
+const Proximas = lazy(() =>import ("../AsignarAulas/AsignarAulas"));
+
+
+const Home = lazy(() =>import ('../home.component'));
+const Register = lazy(() =>import ('../register.component'));
+const Login = lazy(() =>import ('../login.component'));
+const Profile = lazy(() =>import ('../profile.component'));
+const Actividades = lazy(() =>import ('../Actividades/AdministrarActividades'));
+
+
+
 
 
 
@@ -35,9 +32,7 @@ class NavAdmin extends React.Component{
         
         this.logOut = this.logOut.bind(this);
         this.state = {
-            radio:true,
-            diaTemperatura:20.0,
-            diaIcono:3,
+            
             hidden: undefined,
             showModeratorBoard: false,
             showAdminBoard: false,
@@ -117,7 +112,7 @@ class NavAdmin extends React.Component{
                 <LinkContainer to="/home">
                 <Button href="/home" variant="nav" >Inicio</Button>
                 </LinkContainer>
-                {showAdminBoard &&
+                {(showModeratorBoard || showAdminBoard )&&
                 (
                   <LinkContainer to="/actividades">
                 <Button  variant="nav" >Actividades</Button>
@@ -147,12 +142,12 @@ class NavAdmin extends React.Component{
                 {currentUser ? (
                    <Nav className="ml-auto ">
                         <Button   href="/profile" variant="nav" >{currentUser.username}</Button>
-                        <Button  href="/login" variant="nav" onClick={this.logOut} >Logout</Button>
+                        <Button  href="/login" variant="nav" onClick={this.logOut} >Cerrar sesión</Button>
                  </Nav> 
                 ):(
                     <Nav className="ml-auto ">
                    <Button   href="/login" variant="nav" >Login</Button> 
-                   <Button   href="/register" variant="nav" >Sign Up</Button>
+                   <Button   href="/register" variant="nav" >Registrate</Button>
                    </Nav>
                 )}
                     
@@ -160,21 +155,20 @@ class NavAdmin extends React.Component{
             </Navbar.Collapse>
             </Navbar>
             <div className=" mt-3 ">
+            <Suspense fallback={<Placeholder/>}>
             <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
-            <Route path="/user" component={BoardUser} />
-            <Route path="/mod" component={BoardModerator} />
-            <Route path="/prensa" component={BoardPrensa} />
-            <Route path="/admin" component={BoardAdmin} />
+            
             <Route path="/actividades" component={Actividades} />
             <Route path="/cohortes" component={Cohortes} />
             <Route path="/aulas" component={Aulas} />
             <Route path="/proximasclases" component={Proximas} />
 
           </Switch>
+          </Suspense>
             </div>
             </>
         )

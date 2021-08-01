@@ -4,6 +4,26 @@
     --color-cuadrado: #265661;
     --color-fondo-secciones: #345d66;
 }*/
+.dx-widget{
+    font-family: Ubuntu-Regular;
+}
+.dx-icon-trash::before {
+    color: red;
+    content: "";
+}
+.btn-primary {
+    color: #fff;
+    background-color: #00464f !important;
+    border-color:#00464f !important;
+  
+  }
+  .btn.btn-primary:active,
+  .btn.btn-primary:hover,
+  .btn.btn-primary:focus {
+    color: #fff;
+    background-color: #b19700!important;
+    border-color:#b19700!important;
+  }
 .texto-h2 {
     margin-bottom: 1rem;
     margin-top: 1rem;

@@ -4,7 +4,7 @@ import React from 'react';
 import {URL_BASE, API_GET_ACTIVIDADES, API_GET_SEDES} from "../Api.js";
 import Swal from "sweetalert2";
 import axios from "axios";
-
+import authHeader from "../../services/auth-header"
 export default ({showModal, handleClose}) => {
 
     const [show, setShow] = useState(false);
@@ -22,7 +22,7 @@ export default ({showModal, handleClose}) => {
     const handleActividad = (event) => setSelectedActividad(event.target.value);
     const handleSede = async (event) => {
         try {
-            const res = await axios.get(`${URL_BASE}/edificio/sede/find/${event.target.value}`);
+            const res = await axios.get(`${URL_BASE}/edificio/sede/find/${event.target.value}`,{ headers: authHeader() });
             setEdificios(res.data.data);
         } catch (err) {
             console.error(err);
@@ -30,7 +30,7 @@ export default ({showModal, handleClose}) => {
     };
     const handleEdificio = async (event) => {
         try {
-            const res = await axios.get(`${URL_BASE}/aula/find/edificio/${event.target.value}`);
+            const res = await axios.get(`${URL_BASE}/aula/find/edificio/${event.target.value}`,{ headers: authHeader() });
             setAulas(res.data.data);
         } catch (err) {
             console.error(err);
@@ -41,7 +41,7 @@ export default ({showModal, handleClose}) => {
     useEffect(() => {
         const fetchActividades = async () => {
             try {
-                const res = await axios.get(`${API_GET_ACTIVIDADES}`);
+                const res = await axios.get(`${API_GET_ACTIVIDADES}`,{ headers: authHeader() });
                 setActividades(res.data.data);
             } catch (err) {
                 console.error(err);
@@ -49,7 +49,7 @@ export default ({showModal, handleClose}) => {
         };
         const fetchSedes = async () => {
             try {
-                const res = await axios.get(`${API_GET_SEDES}`);
+                const res = await axios.get(`${API_GET_SEDES}`,{ headers: authHeader() });
                 setSedes(res.data.data);
             } catch (err) {
                 console.error(err);
@@ -65,9 +65,9 @@ export default ({showModal, handleClose}) => {
     return (
         <>
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header>
+                <Modal.Header closeButton>
                     <Modal.Title>Asignar Aula</Modal.Title>
-                </Modal.Header>
+                </Modal.Header >
                 <Modal.Body>
                     <Form.Group controlId="FormActividadAula" className="mt-3">
                         <Form.Label>Seleccionar Actividad</Form.Label>
@@ -115,10 +115,10 @@ export default ({showModal, handleClose}) => {
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    {/*<Button variant="secondary" onClick={handleClose}>
                         Cerrar
-                    </Button>
-                    <Button variant="primary" onClick={handleSubmit}>
+                    </Button>*/}
+                    <Button variant="primary" block onClick={handleSubmit}>
                         Asignar Aula
                     </Button>
                 </Modal.Footer>

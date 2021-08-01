@@ -26,7 +26,7 @@ const ModificarAula = ({show, handleClose, aula}) => {
     return (
         <div>
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header >
+                <Modal.Header closeButton>
                   <Modal.Title>Modificar Aula</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -48,10 +48,10 @@ const ModificarAula = ({show, handleClose, aula}) => {
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
+                  {/*<Button variant="secondary" onClick={handleClose}>
                       Cerrar
-                  </Button>
-                  <Button variant="primary" onClick={handleSubmit}>
+                    </Button>*/}
+                  <Button variant="primary" block onClick={handleSubmit}>
                       Guardar Cambios
                   </Button>
                 </Modal.Footer>

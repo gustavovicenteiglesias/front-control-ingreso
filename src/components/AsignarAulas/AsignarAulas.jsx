@@ -3,8 +3,9 @@ import {Container, Col, Button} from "react-bootstrap";
 
 import ModalAsignarAula from "./ModalAsignarAula";
 import {useState} from "react";
-import TablaSesiones from "./TablaSesiones";
+
 import TablaSesiones2 from "./TablaSesiones2";
+import '../Actividades/AdministrarActividades.css'
 export default () => {
     const [show, setShow] = useState(false);
 

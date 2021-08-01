@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import AuthService from "../services/auth.service";
-
+import '../components/Actividades/AdministrarActividades.css';
 export default class Profile extends Component {
   constructor(props) {
     super(props);
@@ -37,11 +37,7 @@ export default class Profile extends Component {
             <strong>{currentUser.username}</strong> Profile
           </h3>
         </header>
-        <p>
-          <strong>Token:</strong>{" "}
-          {currentUser.accessToken.substring(0, 20)} ...{" "}
-          {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
-        </p>
+        
         <p>
           <strong>Id:</strong>{" "}
           {currentUser.id}

@@ -39,10 +39,10 @@ export const ModificarActividad = (props) => {
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={props.handleClose}>
+                   { /*<Button variant="secondary" onClick={props.handleClose}>
                         Cerrar
-                    </Button>
-                    <Button variant="primary" onClick={handleSubmit}>
+                    </Button>*/}
+                    <Button variant="primary" block onClick={handleSubmit}>
                         Guardar Cambios
                     </Button>
                 </Modal.Footer>
