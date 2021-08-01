@@ -14,28 +14,28 @@ const filtros = ["contains", "="];
 const columnas = [
     {
         dataField: "fecha",
-        width: 200,
+        width: 120,
         caption: "Fecha",
         sortOrder: "desc",
     },
     {
         dataField: "dia",
-        width: 200,
+        width: 150,
         caption: "Dia",
     },
     {
         dataField: "nombreActividad",
-        width: 500,
+        width: 250,
         caption: "Actividad",
     },
     {
         dataField: "horaInicio",
-        width: 250,
+        width: 200,
         caption: "Hora de inicio",
     },
     {
         dataField: "horaFin",
-        width: 250,
+        width: 200,
         caption: "Hora de Fin",
     },
 ];

@@ -71,7 +71,7 @@ const TablaCohortes2 = () => {
     const columnas = [
         {
             dataField: "nombreCohorte",
-            width: 300,
+            width: 230,
             caption: "Cohorte",
         },
         {
@@ -81,17 +81,17 @@ const TablaCohortes2 = () => {
         },
         {
             dataField: "sede.nombre",
-            width: 300,
+            width: 180,
             caption: "Sede",
         },
         {
             dataField: "fechaInicio",
-            width: 250,
+            width: 105,
             caption: "Fecha de Inicio",
         },
         {
             dataField: "fechaFin",
-            width: 250,
+            width: 105,
             caption: "Fecha de Fin",
         },
     ];
@@ -122,10 +122,10 @@ const TablaCohortes2 = () => {
                 dataSource={data}
                 allowColumnReordering={true}
                 allowColumnResizing={true}
-                columnAutoWidth={false}
+                columnAutoWidth={true}
                 showBorders={true}
                 focusedRowEnabled={true}
-                width='100%'
+                width='auto'
             >
                 <Paging enabled={true} defaultPageSize={10} />
                 <Pager enabled={true} showNavigationButtons={true} showInfo={true} />
