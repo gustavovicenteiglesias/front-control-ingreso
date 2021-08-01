@@ -36,7 +36,7 @@ const TablaSeguimientos2 = () => {
     const handleSeguimiento = () => {
         Api.getSeguimientoPersonaByFecha(persona.idPersona, fechaInicio, fechaFin)
             .then((data) => {
-                if (data.length > 0) {
+                if (data) {
                     setContactosEstrechos(data)
                     setHiddenTable(!hiddenTable)
                 }
