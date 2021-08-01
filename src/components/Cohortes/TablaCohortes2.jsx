@@ -4,7 +4,7 @@ import * as Api from "../Api.js";
 import DataGrid, { Editing, Column, Button, OperationDescriptions, Paging, RequiredRule, Pager, MasterDetail } from "devextreme-react/data-grid";
 
 import CustomStore from "devextreme/data/custom_store";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FilterRow } from "devextreme-react/tree-list";
 import NuevoCohorte from "./NuevoCohorte";
 import ModificarCohorte from "./ModificarCohorte";
@@ -137,7 +137,7 @@ const TablaCohortes2 = () => {
                 <MasterDetail
                     enabled={true}
                     component={DetailHorarios}
-                    
+
                 />
                 <Column type="buttons" caption="Acciones">
                     <Button name="edit" hint="Editar" onClick={(event) => handleShowEditar(event.row.data)} />

@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import "devextreme/dist/css/dx.light.css";
 import * as Api from "../Api.js";
-import DataGrid, {Editing, Column, Button, OperationDescriptions, Paging, RequiredRule, Pager, Popup} from "devextreme-react/data-grid";
-import {Form} from "react-bootstrap";
-import {Item} from "devextreme-react/form";
+import DataGrid, {Editing, Column, Button, OperationDescriptions, Paging, RequiredRule, Pager} from "devextreme-react/data-grid";
 import CustomStore from "devextreme/data/custom_store";
 import {FilterRow} from "devextreme-react/tree-list";
 import ModificarAula from './ModificarAula'

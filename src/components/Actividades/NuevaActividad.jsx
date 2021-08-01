@@ -2,12 +2,9 @@ import React from 'react';
 import {Modal, Button, Form} from 'react-bootstrap'
 import {useState, useEffect} from 'react'
 import * as Api from '../Api.js'
-import axios from 'axios'
-import Swal from 'sweetalert2'
 export default (props) => {
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+
 
     const placeholder = "Seleccione una"
 

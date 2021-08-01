@@ -3,7 +3,6 @@
 
 import {Modal, Button, Form} from "react-bootstrap";
 import * as Api from "../Api";
-import Swal from "sweetalert2";
 import {useState, useEffect} from "react";
 import React from 'react';
 export default ({show, handleClose}) => {
