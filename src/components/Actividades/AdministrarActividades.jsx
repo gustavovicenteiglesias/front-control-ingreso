@@ -1,7 +1,5 @@
 import React from 'react';
 import {Container, Col} from 'react-bootstrap'
-
-import NuevaActividad from './NuevaActividad'
 import TablaActividades from './TablaActividades'
 import './AdministrarActividades.css'
 const AdministrarActividades = () => {

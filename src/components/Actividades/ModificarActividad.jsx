@@ -2,12 +2,10 @@ import React from "react";
 import {useState, useEffect} from "react";
 import {Modal, Form, Button} from "react-bootstrap";
 import * as Api from "../Api.js";
-import Swal from "sweetalert2";
 
 export const ModificarActividad = (props) => {
     const [nuevoNombre, setNuevoNombre] = useState(props.actividad.nombreActividad);
     const [showModal, setShowModal] = useState();
-    const [nombreDefault, setnombreDefault] = useState();
     const handleSubmit = async () => {
         Api.updateActividad(props.actividad.idActividad, nuevoNombre);
         setShowModal(false);

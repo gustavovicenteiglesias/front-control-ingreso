@@ -1,24 +1,13 @@
-import { Form, Button, Modal, Table } from "react-bootstrap";
+import { Form, Button, Modal} from "react-bootstrap";
 import { useState, useEffect } from "react";
 import * as Api from "../Api.js";
-import TablaHorarios from "./TablaHorarios.jsx";
 import React from 'react';
-/*
- TODO: Resolver asignacion de horarios
-    * Ya esta armado el array de horarios, falta arreglar que la tabla renderice correctamente
- TODO: Al crear un cohorte, asignar al horario el idCohorte devuelto por la api
- TODO: Crear horarios en base de datos
- TODO: Agregar a la tabla de cohortes los horarios asignados
- TODO: Migrar sistema de array para horarios y Get en base de datos y PUSH individual.
- TODO: Agregar Aula al modal. usar create-por-cohorte. Implementar opcion "Sin Asignar"
-
- ? Como renderizar nuevamente la tabla cuando se alteran los datos (evitar el window.location.reload())
-*/
+import {useSedes} from '../hooks/useSedes'
+import {useDependencias} from '../hooks/useDependencias'
 
 const DIAS_SEMANA = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
 const MODALIDADES = ["Practico", "Teorico", "Teorico-Practico", "Actividad Extracurricular"];
 
-let arrHorarios = [];
 let placeholder = "Ingrese una";
 
 export default (props) => {
@@ -26,8 +15,9 @@ export default (props) => {
     var actividadCohorte = { nombre: "default" };
     // * Parametros
     const [show, setShow] = useState(false);
-    const [sedes, setSedes] = useState([]);
-    const [dependencias, setDependencias] = useState([]);
+    const {sedes} = useSedes();
+    const {dependencias} = useDependencias();
+    
     const [propuestas, setPropuestas] = useState([]);
     const [actividades, setActividades] = useState([]);
     const [cohortes, setCohortes] = useState([]);
@@ -50,11 +40,8 @@ export default (props) => {
     const [horaInicio, setHoraInicio] = useState();
     const [horaFin, setHoraFin] = useState();
     const [modalidad, setModalidad] = useState();
-    const [showTable, setShowTable] = useState();
     const [aula, setAula] = useState();
-    const [horarios, setHorarios] = useState(arrHorarios);
     const [edificiosDelCohorte, setEdificiosDelCohorte] = useState([]);
-    const [edificio, setEdificio] = useState();
     const [aulasDelEdificio, setAulasDelEdificio] = useState([]);
     const [hiddenActividad, setHiddenActividad] = useState(true);
 
@@ -102,7 +89,6 @@ export default (props) => {
         Api.getAulasByEdificio(event.target.value).then((data) => {
             setAulasDelEdificio(data);
         });
-        setEdificio(event.target.value)
     };
     const handleAula = event => setAula(event.target.value);
     const handleSubmit = async () => { };
@@ -120,14 +106,7 @@ export default (props) => {
         setShow(props.showModal);
     }, [props.showModal]);
 
-    useEffect(() => {
-        Api.getSedes().then((res) => {
-            setSedes(res);
-        });
-        Api.getDependencias().then((res) => {
-            setDependencias(res);
-        });
-    }, []);
+
 
     useEffect(() => {
         Api.getCohortes().then((res) => {
@@ -293,7 +272,6 @@ export default (props) => {
                     <Button className="mt-3" variant="primary" block onClick={handleAsignarHorario}>
                         Asignar Horario
                     </Button>
-                    <TablaHorarios horarios={horarios} showTable={showTable} />
                 </Modal.Body>
                 <Modal.Footer>
                     {/*<Button variant="secondary" onClick={props.handleClose}>

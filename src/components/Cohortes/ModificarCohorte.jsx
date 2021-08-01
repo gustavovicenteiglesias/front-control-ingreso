@@ -2,10 +2,10 @@ import React, {useState, useEffect} from "react";
 import {Modal, Form, Button} from "react-bootstrap";
 import * as Api from "../Api.js";
 
+
 const ModificarCohorte = (props) => {
     const [showModal, setShowModal] = useState(false);
     const [cohorte, setCohorte] = useState(props.cohorte);
-    const [sedes, setSedes] = useState([]);
     const [nuevoNombre, setNuevoNombre] = useState(props.cohorte.nombre);
     const [nuevaFechaInicio, setNuevaFechaInicio] = useState(props.cohorte.fechaInicio);
     const [nuevaFechaFin, setNuevaFechaFin] = useState(props.cohorte.fechaFin);
@@ -30,11 +30,7 @@ const ModificarCohorte = (props) => {
         setCohorte(props.cohorte);
     }, [props.cohorte]);
 
-    useEffect(() => {
-        Api.getSedes().then((res) => {
-            setSedes(res);
-        });
-    }, []);
+
 
     return (
         <div>
@@ -65,9 +61,6 @@ const ModificarCohorte = (props) => {
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                    {/*<Button variant="secondary" onClick={props.handleClose}>
-                        Cerrar
-                    </Button>*/}
                     <Button variant="primary" block onClick={handleSubmit}>
                         Guardar Cambios
                     </Button>

@@ -12,7 +12,7 @@ import "./NavAdmin1.css";
 const Cohortes = lazy(() =>import ("../Cohortes/AdministrarCohortes"));
 const Aulas= lazy(() =>import ("../Aulas/AdministrarAulas"));
 const Proximas = lazy(() =>import ("../AsignarAulas/AsignarAulas"));
-
+const Seguimientos = lazy(() => import ("../Seguimientos/AdminSeguimientos"));
 
 const Home = lazy(() =>import ('../home.component'));
 const Register = lazy(() =>import ('../register.component'));
@@ -36,7 +36,7 @@ class NavAdmin extends React.Component{
             hidden: undefined,
             showModeratorBoard: false,
             showAdminBoard: false,
-            showPrensaBoard:false,
+            // showPrensaBoard:false,
             currentUser: undefined,
           };
             
@@ -52,7 +52,7 @@ class NavAdmin extends React.Component{
         currentUser: user,
         showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
         showAdminBoard: user.roles.includes("ROLE_ADMIN"),
-        showPrensaBoard:user.roles.includes("ROLE_PRENSA"),
+        // showPrensaBoard:user.roles.includes("ROLE_PRENSA"),
       });
     }
   }
@@ -62,7 +62,7 @@ class NavAdmin extends React.Component{
   }
    
  render(){
-    const { currentUser, showModeratorBoard, showAdminBoard,showPrensaBoard } = this.state;
+    const { currentUser, showModeratorBoard, showAdminBoard,/*showPrensaBoard*/ } = this.state;
         return(
 
             <>
@@ -137,6 +137,12 @@ class NavAdmin extends React.Component{
                  <Button variant="nav" >Próximas clases</Button>
                  </LinkContainer>
                  )}
+                 {showAdminBoard && 
+                 (
+                  <LinkContainer to="/seguimientos">
+                 <Button variant="nav" >Seguimientos</Button>
+                 </LinkContainer>
+                 )}
                 </Nav>
 
                 {currentUser ? (
@@ -166,6 +172,7 @@ class NavAdmin extends React.Component{
             <Route path="/cohortes" component={Cohortes} />
             <Route path="/aulas" component={Aulas} />
             <Route path="/proximasclases" component={Proximas} />
+            <Route path="/seguimientos" component={Seguimientos} />
 
           </Switch>
           </Suspense>

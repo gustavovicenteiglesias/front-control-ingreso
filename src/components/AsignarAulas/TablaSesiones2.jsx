@@ -1,11 +1,10 @@
 
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import "devextreme/dist/css/dx.light.css";
 import * as Api from "../Api.js";
 import DataGrid, {Editing, Column, Button, OperationDescriptions, Paging, RequiredRule, Pager} from "devextreme-react/data-grid";
 import CustomStore from "devextreme/data/custom_store";
 import {FilterRow} from "devextreme-react/tree-list";
-import ModalAsignarAula from "./ModalAsignarAula";
 import Swal from "sweetalert2";
 import ModificarSesion from "./ModificarSesion.jsx";
 
@@ -14,28 +13,28 @@ const filtros = ["contains", "="];
 const columnas = [
     {
         dataField: "fecha",
-        width: 200,
+        width: 120,
         caption: "Fecha",
         sortOrder: "desc",
     },
     {
         dataField: "dia",
-        width: 200,
+        width: 150,
         caption: "Dia",
     },
     {
         dataField: "nombreActividad",
-        width: 500,
+        width: 250,
         caption: "Actividad",
     },
     {
         dataField: "horaInicio",
-        width: 250,
+        width: 200,
         caption: "Hora de inicio",
     },
     {
         dataField: "horaFin",
-        width: 250,
+        width: 200,
         caption: "Hora de Fin",
     },
 ];
@@ -43,13 +42,9 @@ const columnas = [
 const TablaSesiones2 = () => {
     // * Parametros *
     const [showModificar, setShowModificar] = useState(false);
-    const [showAgregar, setShowAgregar] = useState(false);
     const [sesionSeleccionada, setSesionSeleccionada] = useState();
 
     // * Eventos *
-    const handleAgregarClick = () => {
-        setShowAgregar(!showAgregar);
-    };
     const handleEditarClick = (data) => {
         setSesionSeleccionada(data);
         setShowModificar(!showModificar);
@@ -73,9 +68,6 @@ const TablaSesiones2 = () => {
 
     const handleCloseModificar = () => {
         setShowModificar(false);
-    };
-    const handleCloseAgregar = () => {
-        setShowAgregar(false);
     };
 
     const [data] = useState(
