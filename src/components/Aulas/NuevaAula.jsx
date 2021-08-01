@@ -5,6 +5,7 @@ import {Modal, Button, Form} from "react-bootstrap";
 import * as Api from "../Api";
 import {useState, useEffect} from "react";
 import React from 'react';
+import { useSedes } from "../hooks/useSedes";
 export default ({show, handleClose}) => {
     // * Parametros * 
     const [, setShow] = useState();
@@ -12,7 +13,7 @@ export default ({show, handleClose}) => {
     const [capacidad, setCapacidad] = useState();
     const [edificios, setEdificios] = useState([]);
     const [idEdificio, setIdEdificio] = useState();
-    const [sedes, setSedes] = useState([]);
+    const {sedes} = useSedes();
 
     // * Eventos *
     const handleSede = async (event) => Api.getEdificiosBySede(event.target.value).then((res) => setEdificios(res));
@@ -27,9 +28,7 @@ export default ({show, handleClose}) => {
     };
 
     // * useEffects * 
-    useEffect(() => {
-        Api.getSedes().then(res => setSedes(res))
-    }, []);
+
 
     useEffect(() => {
         setShow(show);

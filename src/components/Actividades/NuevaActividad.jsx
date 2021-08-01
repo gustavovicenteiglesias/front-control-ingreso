@@ -2,13 +2,14 @@ import React from 'react';
 import {Modal, Button, Form} from 'react-bootstrap'
 import {useState, useEffect} from 'react'
 import * as Api from '../Api.js'
+import { useDependencias } from '../hooks/useDependencias.jsx';
 export default (props) => {
     const [show, setShow] = useState(false);
 
 
     const placeholder = "Seleccione una"
 
-    const [dependencias, setDependencias] = useState([]);
+    const {dependencias} = useDependencias();
     const [propuestas, setPropuestas] = useState([]);
 
     const [nombreActividad, setNombreActividad] = useState();
@@ -26,12 +27,6 @@ export default (props) => {
     const handleSelectPropuesta = event => setIdPropuesta(event.target.value);
     const handleActividad = event => setNombreActividad(event.target.value);
 
-    useEffect(() => {
-        Api.getDependencias()
-            .then(res => {
-                setDependencias(res);
-            })
-    }, [])
 
     useEffect(() => {
         setShow(props.showModal);
