@@ -9,7 +9,6 @@ export const useDependencias = () => {
         Api.getDependencias()
             .then((data) => {
                 setDependencias(data);
-                console.log("Dependencias", dependencias);
             })
     }, []);
 
