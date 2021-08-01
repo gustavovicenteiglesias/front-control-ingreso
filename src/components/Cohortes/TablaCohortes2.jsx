@@ -1,14 +1,15 @@
 import React from "react";
 import "devextreme/dist/css/dx.light.css";
 import * as Api from "../Api.js";
-import DataGrid, {Editing, Column, Button, OperationDescriptions, Paging, RequiredRule, Pager} from "devextreme-react/data-grid";
+import DataGrid, { Editing, Column, Button, OperationDescriptions, Paging, RequiredRule, Pager, MasterDetail } from "devextreme-react/data-grid";
 
 import CustomStore from "devextreme/data/custom_store";
-import {useState, useEffect} from "react";
-import {FilterRow} from "devextreme-react/tree-list";
+import { useState, useEffect } from "react";
+import { FilterRow } from "devextreme-react/tree-list";
 import NuevoCohorte from "./NuevoCohorte";
 import ModificarCohorte from "./ModificarCohorte";
 import Swal from "sweetalert2";
+import DetailHorarios from "./DetailHorario.jsx";
 
 const TablaCohortes2 = () => {
     const [cohorteModificar, setCohorteModificar] = useState(null);
@@ -123,6 +124,7 @@ const TablaCohortes2 = () => {
                 allowColumnResizing={true}
                 columnAutoWidth={false}
                 showBorders={true}
+                focusedRowEnabled={true}
                 width='100%'
             >
                 <Paging enabled={true} defaultPageSize={10} />
@@ -131,6 +133,12 @@ const TablaCohortes2 = () => {
                     <OperationDescriptions contains="Contiene" equal="Busqueda Exacta" />
                 </FilterRow>
                 <Editing useIcons={true} allowAdding={true} allowUpdating={true} allowDeleting={true}></Editing>
+
+                <MasterDetail
+                    enabled={true}
+                    component={DetailHorarios}
+                    
+                />
                 <Column type="buttons" caption="Acciones">
                     <Button name="edit" hint="Editar" onClick={(event) => handleShowEditar(event.row.data)} />
                     <Button name="delete" hint="Borrar" onClick={(event) => handleShowBorrar(event.row.data)} />
