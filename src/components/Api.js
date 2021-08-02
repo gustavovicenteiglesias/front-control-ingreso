@@ -173,7 +173,7 @@ export const getEdificiosBySede = async (idSede) => {
 // * HORARIOS *
 
 export const getHorariosByCohorte = async (idCohorte) => {
-    return axios.get(`${URL_BASE}/horario/find/${idCohorte}`, { headers: authHeader() })
+    return axios.get(`${URL_BASE}/horario/por-cohorte/${idCohorte}`, { headers: authHeader() })
         .then(response => response.data.data)
         .catch(err => Swal.fire('Error al obtener horarios', err, 'error'));
 }
