@@ -23,6 +23,11 @@ const columnas = [
         caption: "Dia",
     },
     {
+        dataField: "nombreCohorte",
+        width: 200,
+        caption: "Descripcion",
+    },
+    {
         dataField: "nombreActividad",
         width: 250,
         caption: "Actividad",

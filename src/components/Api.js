@@ -227,7 +227,7 @@ export const getPersonaByDni = async (dni) => {
 
 export const getSeguimientoPersonaByFecha = async (idPersona, fechaInicio, fechaFin) => {
     return axios.get(`${URL_BASE}/persona/find/persona_sesion/${fechaInicio}/${fechaFin}/${idPersona}`, { headers: authHeader() })
-        .then(response => response.data.data)
+        .then(response => response.data.personas)
         .catch(err => Swal.fire('Error al obtener seguimiento', err, 'error'));
 }
 // * PROPUESTAS *

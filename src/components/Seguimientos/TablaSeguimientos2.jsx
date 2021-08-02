@@ -35,12 +35,15 @@ const TablaSeguimientos2 = () => {
 
     const handleSeguimiento = () => {
         Api.getSeguimientoPersonaByFecha(persona.idPersona, fechaInicio, fechaFin)
-            .then((data) => {
-                if (data) {
-                    setContactosEstrechos(data)
-                    setHiddenTable(!hiddenTable)
+            .then((personas) => {
+                if(personas && personas.length > 0) {
+                    setContactosEstrechos(personas);
+                    setHiddenTable(!hiddenTable);
                 }
-                else Swal.fire('¡Hurra!', 'Esta persona no tiene contactos estrechos', 'success');
+                else {
+                    Swal.fire('Bien!', 'No se encontaron contactos estrechos de esta persona', 'success');
+                    setHiddenTable(true);
+                }
             });
     }
     return (
