@@ -41,14 +41,14 @@ export default (props) => {
                     <Form.Group controlId="formDependenciaActividad" className="mt-2">
                         <Form.Label>Dependencia </Form.Label>
                         <Form.Control onChange={handleSelectDependencia} defaultValue={placeholder} as="select" placeholder="Seleccione Dependencia">
-                            <option disabled value={placeholder}>{placeholder}</option>
+                            <option hidden value={placeholder}>{placeholder}</option>
                             {dependencias.map(dependencia => <option key={dependencia.idDependencia} value={dependencia.idDependencia}>{dependencia.nombre}</option>)}
                         </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="formPropuestaDependencia"className="mt-2">
                         <Form.Label>Propuesta </Form.Label>
                         <Form.Control onChange={handleSelectPropuesta} defaultValue={placeholder} as="select">
-                            <option disabled value={placeholder}>{placeholder}</option>
+                            <option hidden value={placeholder}>{placeholder}</option>
                             {propuestas.map(propuesta => <option key={propuesta.idPropuesta} value={propuesta.idPropuesta}>{propuesta.nombre}</option>)}
                         </Form.Control>
                     </Form.Group>
