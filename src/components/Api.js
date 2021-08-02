@@ -78,6 +78,12 @@ export const getAulas = async () => {
         .catch(err => Swal.fire('Error al cargar aulas', err, 'error'));
 }
 
+export const getAulaById = async (idAula) => {
+    return axios.get(`${URL_BASE}/aula/find/${idAula}`, { headers: authHeader() })
+        .then(response => response.data.data)
+        .catch(err => Swal.fire('Error al cargar aula', err, 'error'));
+}
+
 export const getAulasByEdificio = async (idEdificio) => {
     return axios.get(`${URL_BASE}/aula/find/edificio/${idEdificio}`, { headers: authHeader() })
         .then(response => response.data.data)
@@ -255,8 +261,8 @@ export const deleteSesion = async (idSesion) => {
         .catch(err => Swal.fire('Error al eliminar la sesión', err, 'error'));
 }
 
-export const updateSesion = async (idSesion, fecha) => {
-    return axios.put(`${URL_BASE}/sesionpresencial/update/${idSesion}`, { fecha: fecha }, { headers: authHeader() })
+export const updateSesion = async (idSesion, fecha, aula) => {
+    return axios.put(`${URL_BASE}/sesionpresencial/update-fecha/${idSesion}/${aula.idAula}`, {fecha: fecha}, { headers: authHeader() })
         .then((response) => {
             Swal.fire('Sesion actualizada', '', 'success').then(() => { window.location.reload() });
             return response.data.data;
